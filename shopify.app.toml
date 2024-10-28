@@ -1,0 +1,33 @@
+# Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
+
+client_id = "fb721f63113f7306d01ac81f01ca6830"
+name = "qr-code"
+handle = "qr-code-391"
+application_url = "https://fall-emirates-senior-turtle.trycloudflare.com"
+embedded = true
+
+[build]
+include_config_on_deploy = true
+dev_store_url = "psurya.myshopify.com"
+automatically_update_urls_on_dev = true
+
+[access_scopes]
+# Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
+scopes = "write_products"
+
+[auth]
+redirect_urls = [
+  "https://fall-emirates-senior-turtle.trycloudflare.com/auth/callback",
+  "https://fall-emirates-senior-turtle.trycloudflare.com/auth/shopify/callback",
+  "https://fall-emirates-senior-turtle.trycloudflare.com/api/auth/callback"
+]
+
+[webhooks]
+api_version = "2024-10"
+
+  [[webhooks.subscriptions]]
+  topics = [ "app/uninstalled" ]
+  uri = "/webhooks/app/uninstalled"
+
+[pos]
+embedded = false
